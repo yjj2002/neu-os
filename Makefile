@@ -51,13 +51,13 @@ bootimg: boot/setup boot/bootsect system
 	@echo -e "\e[1;0;32mBuild bootimg done"
 
 run: bootimg
-	 -boot a -fda bootimg -serial stdio
+	kvm -boot a -fda bootimg -serial stdio
 
 run_bochs: bootimg
-	$(BOCHS) -q
+	BOCHS -q
 
 run_debug:
-	$(QEMU) -boot a -fda bootimg -S -s
+	 -boot a -fda bootimg -S -s
 
 disassemble: system.sym
 	objdump -S system.sym | less
