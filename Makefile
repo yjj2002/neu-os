@@ -51,7 +51,7 @@ bootimg: boot/setup boot/bootsect system
 	@echo -e "\e[1;0;32mBuild bootimg done"
 
 run: bootimg
-	$(QEMU) -boot a -fda bootimg -serial stdio
+	 -boot a -fda bootimg -serial stdio
 
 run_bochs: bootimg
 	$(BOCHS) -q
