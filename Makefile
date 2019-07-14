@@ -57,7 +57,7 @@ run_bochs: bootimg
 	BOCHS -q
 
 run_debug:
-	 -boot a -fda bootimg -S -s
+	kvm -boot a -fda bootimg -S -s
 
 disassemble: system.sym
 	objdump -S system.sym | less
